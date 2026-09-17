@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    // tsc only checks; Vite does the compiling. esbuild/Rolldown strip types
+    // without checking them, so this is the one thing that can say no.
+    "noEmit": true,
+
+    // Chrome runs modern JS natively, so nothing needs down-levelling.
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // Resolve imports the way a bundler does, since a bundler is what runs them.
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    // The bundler compiles one file at a time, so reject anything that needs
+    // whole-program knowledge to compile (e.g. re-exporting a type as a value).
+    "isolatedModules": true,
+
+    // Every file is its own module even with no import/export. Content scripts
+    // are separate bundles; without this, top-level names in two files that
+    // import nothing would collide as if they shared one global scope.
+    "moduleDetection": "force",
+
+    // `chrome` is a global, not an import, so its types must be listed here
+    // to exist at all. React's types arrive through `import`, so need no entry.
+    "types": ["chrome"],
+
+    "jsx": "react-jsx",
+
+    "strict": true,
+    // Makes `record[key]` possibly undefined — which it is.
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    // Don't type-check the .d.ts files inside node_modules; our code is still
+    // checked against them. Their internal conflicts aren't ours to fix.
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}

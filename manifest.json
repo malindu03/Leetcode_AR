@@ -1,0 +1,37 @@
+{
+  "name": "LeetCode Spaced Repetition",
+  "description": "Anki-style spaced repetition for LeetCode.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background/index.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "ui/popup/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/*"
+      ],
+      "js": [
+        "content/interceptor.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false,
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://leetcode.com/*"
+      ],
+      "js": [
+        "content/detector.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false,
+      "world": "ISOLATED"
+    }
+  ]
+}
