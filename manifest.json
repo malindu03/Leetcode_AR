@@ -8,7 +8,7 @@
     "type": "module"
   },
   "action": {
-    "default_popup": "ui/popup/index.html"
+    "default_popup": "ui/popup/popup.html"
   },
   "content_scripts": [
     {

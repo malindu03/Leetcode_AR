@@ -1,0 +1,7 @@
+/* This file is used to define the color scheme for the extension's UI. */
+:root {
+  color-scheme: dark;
+  --lcsr-surface: #1a1a1a;
+  --lcsr-ink: #e6e6e6;
+  --lcsr-accent: #4f8cff;
+}

@@ -46,8 +46,8 @@ await buildScript('content/detector.ts', 'content/detector.js', 'iife');
 // The worker must be an ES module because manifest.json declares "type": "module".
 await buildScript('background/index.ts', 'background/index.js', 'es');
 
-// root is src/ so HTML output paths start below it: src/ui/popup/index.html
-// becomes dist/ui/popup/index.html, not dist/src/ui/popup/index.html.
+// root is src/ so HTML output paths start below it: src/ui/popup/popup.html
+// becomes dist/ui/popup/popup.html, not dist/src/ui/popup/popup.html.
 await build({
   configFile: false,
   logLevel: 'warn',
@@ -57,7 +57,7 @@ await build({
     outDir: dist,
     emptyOutDir: false,
     rolldownOptions: {
-      input: resolve(src, 'ui/popup/index.html'),
+      input: resolve(src, 'ui/popup/popup.html'),
     },
   },
 });

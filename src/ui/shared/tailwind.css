@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+@import './theme.css';
+
+/* Tailwind colours point at theme.css instead of repeating the hex values, so a colour is changed in one place.*/
+   
+@theme inline {
+  --color-surface: var(--lcsr-surface);
+  --color-ink: var(--lcsr-ink);
+  --color-accent: var(--lcsr-accent);
+}

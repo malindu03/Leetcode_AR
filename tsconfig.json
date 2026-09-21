@@ -23,7 +23,9 @@
 
     // `chrome` is a global, not an import, so its types must be listed here
     // to exist at all. React's types arrive through `import`, so need no entry.
-    "types": ["chrome"],
+    // vite/client teaches tsc that importing a .css file is valid, which only
+    // Vite makes true.
+    "types": ["chrome", "vite/client"],
 
     "jsx": "react-jsx",
 
